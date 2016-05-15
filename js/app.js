@@ -15,8 +15,8 @@ var SolarApp = (function() {
 	};
 
 	var simulate = function() {
-		var chargeNeeded = 100 - data.device;
-		data.deviceTime = Math.floor((chargeNeeded / 100) * 300);
+		var chargeNeeded = 100 - data.device; // Charge left from 100
+		data.deviceTime = Math.floor((chargeNeeded / 100) * 300); // Time left to charged based on 300 minutes
 
 		SolarApp.absorded = setInterval(function() {
 			showAbsorded();
