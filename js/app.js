@@ -1,7 +1,7 @@
 var data = {
 	battery: 100,
-	device: 0, // Total Power Device has left in % 0-100
-	deviceTime: 300, // 300 is Full(100%) --> ( device: 80/deviceTime: 60 = Calculated 20% of 300 is 60 )
+	device: 95, // Total Power Device has left in % 0-100
+	deviceTime: 15, // 300 is Full(100%) --> ( device: 80/deviceTime: 60 = Calculated 20% of 300 is 60 )
 };
 
 var SolarApp = (function() {
@@ -31,11 +31,9 @@ var SolarApp = (function() {
 
 		SolarApp.deviceCharge = setInterval(function() {
 			data.device += 1;
+			data.deviceTime -= 3;
 			if ( data.device === 100 ) clearInterval(SolarApp.deviceCharge);
 			showDeviceStatus();
-
-			data.deviceTime -= 3;
-			if ( data.deviceTime === 0 ) clearInterval(SolarApp.deviceTime);
 		}, 3000);
 	};
 
