@@ -69,7 +69,10 @@ img {
 .logo {
 	width: 300px;
 	margin: 45px auto 45px;
-	position: relative;	
+	position: relative;
+	@include size(medium) {
+		width: 260px;
+	}	
 	#battery {
 		position: absolute;
 		top: -40px;
