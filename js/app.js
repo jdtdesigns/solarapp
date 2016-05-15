@@ -1,5 +1,5 @@
 var data = {
-	battery: 16,
+	battery: 100,
 	device: 60, // Total Power Device has left in % (From 0-100)
 };
 
