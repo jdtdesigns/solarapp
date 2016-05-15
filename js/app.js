@@ -1,7 +1,6 @@
 var data = {
 	battery: 100,
 	device: 60, // Total Power Device has left in % 0-100
-	deviceTime: 120, // 300 is Full(100%) --> ( device: 80/deviceTime: 60 = Calculated 20% of 300 is 60 )
 };
 
 var SolarApp = (function() {
@@ -16,6 +15,9 @@ var SolarApp = (function() {
 	};
 
 	var simulate = function() {
+		var chargeNeeded = 100 - data.device;
+		data.deviceTime = Math.floor((chargeNeeded / 100) * 300);
+
 		SolarApp.absorded = setInterval(function() {
 			showAbsorded();
 		}, 2500);
@@ -53,6 +55,7 @@ var SolarApp = (function() {
 
 	var showDeviceStatus = function() {
 		var indicator = $('#indicator'),
+			powerNeeded = 100 - data.device,
 			time = data.deviceTime,
 			hours = Math.floor(time / 60),
 			minutes = time % 60;
