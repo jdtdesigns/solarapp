@@ -6,14 +6,6 @@ var data = {
 var SolarApp = (function() {
 	var init = function() {
 		simulate();
-
-		$('#battery-icon').attr('class', data.battery < 26 ? 'fa fa-battery-quarter' : data.battery < 51 ? 'fa fa-battery-half' : data.battery < 76 ? 'fa fa-battery-three-quarters' : 'fa fa-battery-full');
-		$('#battery').html(data.battery + '%');
-		if ( data.battery < 16 ) {
-			$('#battery').addClass('low');
-			$('#battery-icon').addClass('low');
-		}
-
 		showTime();
 		SolarApp.time = setInterval(function() {
 			showTime();
@@ -23,6 +15,13 @@ var SolarApp = (function() {
 	var simulate = function() {
 		var chargeNeeded = 100 - data.device; // Charge left from 100
 		data.deviceTime = Math.floor((chargeNeeded / 100) * 300); // Time left to charged based on 300 minutes
+
+		$('#battery-icon').attr('class', data.battery < 26 ? 'fa fa-battery-quarter' : data.battery < 51 ? 'fa fa-battery-half' : data.battery < 76 ? 'fa fa-battery-three-quarters' : 'fa fa-battery-full');
+		$('#battery').html(data.battery + '%');
+		if ( data.battery < 16 ) {
+			$('#battery').addClass('low');
+			$('#battery-icon').addClass('low');
+		}
 
 		SolarApp.absorded = setInterval(function() {
 			showAbsorded();
