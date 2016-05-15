@@ -33,9 +33,7 @@ var SolarApp = (function() {
 			data.device += 1;
 			if ( data.device === 100 ) clearInterval(SolarApp.deviceCharge);
 			showDeviceStatus();
-		}, 3000);
 
-		SolarApp.deviceTime = setInterval(function() {
 			data.deviceTime -= 3;
 			if ( data.deviceTime === 0 ) clearInterval(SolarApp.deviceTime);
 		}, 3000);
@@ -60,7 +58,7 @@ var SolarApp = (function() {
 			time = data.deviceTime,
 			hours = Math.floor(time / 60),
 			minutes = time % 60;
-			
+
 		$('#status').html(hours === 0 && minutes === 0 ? 'Charge Complete' : hours + ' hrs ' + minutes + ' mins');	
 		indicator.css('width', data.device + '%');
 	};
