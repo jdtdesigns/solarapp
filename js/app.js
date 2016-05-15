@@ -16,7 +16,7 @@ var SolarApp = (function() {
 		var chargeNeeded = 100 - data.device; // Charge left from 100
 		data.deviceTime = Math.floor((chargeNeeded / 100) * 300); // Time left to charged based on 300 minutes
 
-		$('#battery-icon').attr('class', data.battery < 26 ? 'fa fa-battery-quarter' : data.battery < 51 ? 'fa fa-battery-half' : data.battery < 76 ? 'fa fa-battery-three-quarters' : 'fa fa-battery-full');
+		$('#battery-icon').attr('class', data.battery === 0 ? 'fa fa-battery-empty' : data.battery < 26 ? 'fa fa-battery-quarter' : data.battery < 51 ? 'fa fa-battery-half' : data.battery < 76 ? 'fa fa-battery-three-quarters' : 'fa fa-battery-full');
 		$('#battery').html(data.battery + '%');
 		if ( data.battery < 16 ) {
 			$('#battery').addClass('low');
@@ -32,7 +32,7 @@ var SolarApp = (function() {
 
 			data.battery--;
 			battery.html(data.battery + '%');
-			$('#battery-icon').attr('class', data.battery < 26 ? 'fa fa-battery-quarter' : data.battery < 51 ? 'fa fa-battery-half' : data.battery < 76 ? 'fa fa-battery-three-quarters' : 'fa fa-battery-full');
+			$('#battery-icon').attr('class', data.battery === 0 ? 'fa fa-battery-empty' : data.battery < 26 ? 'fa fa-battery-quarter' : data.battery < 51 ? 'fa fa-battery-half' : data.battery < 76 ? 'fa fa-battery-three-quarters' : 'fa fa-battery-full');
 
 			if ( data.battery < 16 ) {
 				$('#battery').addClass('low');
