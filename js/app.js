@@ -1,7 +1,7 @@
 var data = {
 	battery: 100,
-	device: 0,
-	deviceTime: 300, // 300 is Full --> ( device: 80/deviceTime: 60 = Calculated 20% of 300 is 60 )
+	device: 0, // Total Power Device has left in % 0-100
+	deviceTime: 300, // 300 is Full(100%) --> ( device: 80/deviceTime: 60 = Calculated 20% of 300 is 60 )
 };
 
 var SolarApp = (function() {
