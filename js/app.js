@@ -60,8 +60,8 @@ var SolarApp = (function() {
 			time = data.deviceTime,
 			hours = Math.floor(time / 60),
 			minutes = time % 60;
-
-		$('#status').html(hours + ' hrs ' + minutes + ' mins');	
+			
+		$('#status').html(hours === 0 && minutes === 0 ? 'Charge Complete' : hours + ' hrs ' + minutes + ' mins');	
 		indicator.css('width', data.device + '%');
 	};
 
