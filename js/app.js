@@ -1,6 +1,6 @@
 var data = {
 	battery: 100,
-	device: 60, // Total Power Device has left in % 0-100
+	device: 60, // Total Power Device has left in % (From 0-100)
 };
 
 var SolarApp = (function() {
