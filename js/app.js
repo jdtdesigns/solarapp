@@ -1,13 +1,19 @@
 var data = {
-	battery: 100,
+	battery: 16,
 	device: 60, // Total Power Device has left in % (From 0-100)
 };
 
 var SolarApp = (function() {
 	var init = function() {
 		simulate();
-		$('#battery').html(data.battery + '%').addClass(data.battery < 15 ? 'low' : '');
-		
+
+		$('#battery-icon').attr('class', data.battery < 26 ? 'fa fa-battery-quarter' : data.battery < 51 ? 'fa fa-battery-half' : data.battery < 76 ? 'fa fa-battery-three-quarters' : 'fa fa-battery-full');
+		$('#battery').html(data.battery + '%');
+		if ( data.battery < 16 ) {
+			$('#battery').addClass('low');
+			$('#battery-icon').addClass('low');
+		}
+
 		showTime();
 		SolarApp.time = setInterval(function() {
 			showTime();
@@ -27,7 +33,12 @@ var SolarApp = (function() {
 
 			data.battery--;
 			battery.html(data.battery + '%');
-			if ( data.battery < 15 ) battery.addClass('low');
+			$('#battery-icon').attr('class', data.battery < 26 ? 'fa fa-battery-quarter' : data.battery < 51 ? 'fa fa-battery-half' : data.battery < 76 ? 'fa fa-battery-three-quarters' : 'fa fa-battery-full');
+
+			if ( data.battery < 16 ) {
+				$('#battery').addClass('low');
+				$('#battery-icon').addClass('low');
+			}
 			if ( data.battery === 0 ) clearInterval(SolarApp.batteryLife);
 		}, 5000);
 

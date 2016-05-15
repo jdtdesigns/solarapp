@@ -11,7 +11,8 @@ $green: #92c959;
 	}
 }
 
-// Fonts		
+// Fonts
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.2/css/font-awesome.min.css);		
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 
 // Resets
@@ -73,29 +74,37 @@ img {
 	position: relative;
 	@include size(medium) {
 		width: 260px;
-	}	
-	#battery {
+	}
+	.battery {
 		position: absolute;
 		top: -40px;
 		right: -80px;
-		width: 60px;
-		height: 30px;
-		text-align: center;
-		padding-top: 3px;
-		background: $green;
-		color: #fff;
-		font-size: 1.2rem;
-		@include size(medium) {
-			right: -40px;
-			font-size: 1rem;
+		.fa {
+			margin: 0 8px 5px 0;
+			font-size: 1.2rem;
+			&.low {
+				color: #ef4c23;
+			}
+		}
+		#battery {
+			height: 30px;
+			text-align: center;
 			padding-top: 3px;
-			width: 50px;
-			height: 25px;
+			color: $black;
+			font-size: 1.3rem;
+			display: inline-block;
+			@include size(medium) {
+				right: -40px;
+				font-size: 1rem;
+				padding-top: 3px;
+				width: 50px;
+				height: 25px;
+			}
+			&.low {
+				color: #ef4c23;
+			}
 		}
-		&.low {
-			background: #ef4c23;
-		}
-	}
+	}	
 }
 
 .container {
